@@ -33,8 +33,6 @@ namespace ImageflowServer
             {
                 Prefix = "/images/",
                 IgnorePrefixCase = true,
-                //ConnectionString = "UseDevelopmentStorage=true;",
-                // Only allow 'my_container' to be accessed. /custom_blobs/my_container/key.jpg would be an example path.
                 ContainerKeyFilterFunction = (container, key) =>
                     container == "qrcode" ? Tuple.Create(container, key) : null
             });
@@ -54,7 +52,7 @@ namespace ImageflowServer
                 // Maps / to WebRootPath
                 .SetMapWebRoot(true)
                 // You can get a license key at https://imageresizing.net/
-                .SetMyOpenSourceProjectUrl("https://github.com/imazen/imageflow-dotnet-server")
+                .SetMyOpenSourceProjectUrl("https://github.com/Justincale/ImageflowServer_QRCode")
                 // Maps /folder to WebRootPath/folder
                 //.MapPath("/folder", Path.Combine(Env.ContentRootPath, "folder"))
                 // Allow localhost to access the diagnostics page or remotely via /imageflow.debug?password=fuzzy_caterpillar
